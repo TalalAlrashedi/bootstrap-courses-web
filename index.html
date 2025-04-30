@@ -15,100 +15,362 @@
       .h40 {
         height: 40vh !important;
       }
+
+      .signUp {
+        --color-signUP: #754ffe;
+        background-color: var(--color-signUP);
+      }
     </style>
   </head>
 
   <body>
     <nav
-      class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm sticky-top
-          
-      "
+      class="navbar p-2 navbar-default py-2 navbar-expand-lg navbar-light mt-1"
     >
-      <div class="d-flex">
+      <div class="px-0 ps-2 container-fluid">
         <!-- Logo on the left -->
         <a class="navbar-brand" href="#">
-          <img src="./images/favicon.ico" height="40" alt="Logo" />
-          <span>Geeks</span>
+          <img
+            src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEyIiBoZWlnaHQ9IjI5IiB2aWV3Qm94PSIwIDAgMTEyIDI5IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTI0LjI3NDYgNS4zMzM3N0MyNS44NDg2IDcuMzM5ODEgMjUuMTE4MyAxMS4xNzkyIDI0LjM5NjEgMTMuMDE3N0MyNC40MDI4IDEzLjAxOTkgMjQuNDA5NCAxMy4wMjIxIDI0LjQxNjEgMTMuMDI0M0wyNC40MDEzIDEzLjAyNDhMMjIuNjQ5IDEyLjkwODJDMjIuNjQ5IDEyLjkwNTMgMjIuNjQ4OCAxMi45MDEzIDIyLjY0OSAxMi44OTkzQzIyLjk5MDIgOC45MzM3MyAyMi41OTc1IDcuMzQ1NzUgMjIuMjE0NyA3LjA3Njc3QzE3LjYzMTYgMTAuMzg5NiAxMy41Mzc5IDkuMzM2NTggMTIuMjcyNSA5LjAxMTExQzExLjkyOCA4LjkyMjUgMTEuNzkzMiA4Ljg4NzgxIDExLjkxNTIgOS4wMDk4OEMxMi4yODcyIDkuMzgxODUgMTMuMTMzNiA5LjgyODIxIDEzLjczNzEgMTAuMTQ2NUgxMy43MzcyTDEzLjczNzYgMTAuMTQ2N0MxMy44NzQzIDEwLjIxODggMTMuOTk4NSAxMC4yODQzIDE0LjEwMTkgMTAuMzQwOUM5LjEyNjczIDEwLjM5ODQgNy4xMjY1OSA4LjAwMjc5IDYuNTM4NTUgNy4yOTg0NkM2LjQ3ODU5IDcuMjI2NjQgNi40MzMzIDcuMTcyNCA2LjQwMTA1IDcuMTQwMTVDNi4xMTQwOCA2Ljg1MzE4IDQuNDk5NjEgNS44NzI1MiAzLjk5MjU2IDcuNzQyMjdDMy41MDE0MiA5LjU1MzM1IDMuODEyNDYgMTEuNjc3NSAzLjk3NjY1IDEyLjc5ODhDMy45OTA4OSAxMi44OTYgMy45OTI1NyAxMi44OTgxIDMuOTkyNTcgMTIuOTI5OEwyLjM3NjM1IDEzLjAyNDhMMi4zNzIxMyAxMy4wMjQ3QzAuMjIzNDkzIDguMDU1MzQgMS44Mzg1NCA1LjI2OTcxIDMuMjk1MzYgNC4yMjQ2QzMuMjk1MzYgMS43ODQ0NCA2LjI3NDI4IC0wLjU5MjM1OSAxMC4wNDU1IDAuMjYzMjYyQzE0Ljg3NjggMS42NDA0MyAxNi4zNDY4IDEuMTg0MDkgMTguMDc1OSAwLjY0NzI3OEMxOC43NzQgMC40MzA1NjIgMTkuNTE0MyAwLjIwMDcyNiAyMC41MzUxIDAuMDczMTI0QzI1LjIyMTkgLTAuNTEyNzM5IDI2Ljc5OTMgMi41NjYxMiAyNyA0LjE2MTIyQzI2LjIxNDEgMy43MDQ4NyAyNC44NTU2IDQuNzMxNjUgMjQuMjc0NiA1LjMzMzc3Wk0xMi4zMzc0IDEuNTg3MkMxMS4xMjI1IDEuMTY0NjYgNy45OTI1NyAwLjcxNzIwOSA2LjM0NzggMi40MTExNkM1Ljk4Mzk3IDIuNzg1ODcgNS41NTU1NCAzLjQ4ODY0IDUuNTU1NTQgMy40ODg2NEM1LjU1NTU0IDMuNDg4NjQgNC44MjY2NSA0LjgxOTYxIDQuMjU2MjIgNC4yNDkxOUMzLjY4NTc5IDMuNjc4NzggNS4wMTY4IDEuOTY3NDkgNi4wNjI1OSAxLjQ2MDQ0QzcuMTA4MzggMC45NTMzODggOS43MDcwMyAwLjA2NjA1MDUgMTIuMzM3NCAxLjU4NzJaIiBmaWxsPSIjNzU0RkZFIi8+CjxwYXRoIGQ9Ik0xMC4wNzggMTMuNTAwMkgzLjEwNjAxQzIuMjMwOSAxMy41MDAyIDEuNTIxNDggMTQuMjA5NyAxLjUyMTQ4IDE1LjA4NDhWMTguMzE3MkMxLjUyMTQ4IDE5LjE5MjMgMi4yMzA5IDE5LjkwMTggMy4xMDYwMSAxOS45MDE4SDEwLjA3OEMxMC45NTMxIDE5LjkwMTggMTEuNjYyNSAxOS4xOTIzIDExLjY2MjUgMTguMzE3MlYxNS4wODQ4QzExLjY2MjUgMTQuMjA5NyAxMC45NTMxIDEzLjUwMDIgMTAuMDc4IDEzLjUwMDJaIiBzdHJva2U9IiM3NTRGRkUiIHN0cm9rZS13aWR0aD0iMS4yNjc2MyIvPgo8cGF0aCBkPSJNMC44MjM1MTMgMTQuNjA5NEgwLjM3OTg0N0MwLjE4NzMyMiAxNC42MDk0IDAuMDMxMjUgMTQuNzY1NCAwLjAzMTI1IDE0Ljk1OFYxNS45NzIxQzAuMDMxMjUgMTYuMTY0NiAwLjE4NzMyMiAxNi4zMjA3IDAuMzc5ODQ3IDE2LjMyMDdIMC44MjM1MTNDMS4wMTYwNCAxNi4zMjA3IDEuMTcyMTEgMTYuMTY0NiAxLjE3MjExIDE1Ljk3MjFWMTQuOTU4QzEuMTcyMTEgMTQuNzY1NCAxLjAxNjA0IDE0LjYwOTQgMC44MjM1MTMgMTQuNjA5NFoiIGZpbGw9IiM3NTRGRkUiIHN0cm9rZT0iIzc1NEZGRSIgc3Ryb2tlLXdpZHRoPSIwLjA2MzM4MTMiLz4KPHBhdGggZD0iTTE2LjczMjYgMTMuNTAwMkgyMy43MDQ1QzI0LjU3OTYgMTMuNTAwMiAyNS4yODkxIDE0LjIwOTcgMjUuMjg5MSAxNS4wODQ4VjE4LjMxNzJDMjUuMjg5MSAxOS4xOTIzIDI0LjU3OTYgMTkuOTAxOCAyMy43MDQ1IDE5LjkwMThIMTYuNzMyNkMxNS44NTc1IDE5LjkwMTggMTUuMTQ4MSAxOS4xOTIzIDE1LjE0ODEgMTguMzE3MlYxNS4wODQ4QzE1LjE0ODEgMTQuMjA5NyAxNS44NTc1IDEzLjUwMDIgMTYuNzMyNiAxMy41MDAyWiIgc3Ryb2tlPSIjNzU0RkZFIiBzdHJva2Utd2lkdGg9IjEuMjY3NjMiLz4KPHBhdGggZD0iTTI1Ljk4NjEgMTQuNjA5NEgyNi40Mjk3QzI2LjYyMjIgMTQuNjA5NCAyNi43NzgzIDE0Ljc2NTQgMjYuNzc4MyAxNC45NThWMTUuOTcyMUMyNi43NzgzIDE2LjE2NDYgMjYuNjIyMiAxNi4zMjA3IDI2LjQyOTcgMTYuMzIwN0gyNS45ODYxQzI1Ljc5MzUgMTYuMzIwNyAyNS42Mzc1IDE2LjE2NDYgMjUuNjM3NSAxNS45NzIxVjE0Ljk1OEMyNS42Mzc1IDE0Ljc2NTQgMjUuNzkzNSAxNC42MDk0IDI1Ljk4NjEgMTQuNjA5NFoiIGZpbGw9IiM3NTRGRkUiIHN0cm9rZT0iIzc1NEZGRSIgc3Ryb2tlLXdpZHRoPSIwLjA2MzM4MTMiLz4KPHBhdGggZD0iTTEyLjI5NTQgMTUuNTYwMUgxNC41MTM3QzE0LjcwNjIgMTUuNTYwMSAxNC44NjIzIDE1LjcxNjEgMTQuODYyMyAxNS45MDg3VjE2LjkyMjhDMTQuODYyMyAxNy4xMTUzIDE0LjcwNjIgMTcuMjcxMyAxNC41MTM3IDE3LjI3MTNIMTIuMjk1NEMxMi4xMDI4IDE3LjI3MTMgMTEuOTQ2OCAxNy4xMTUzIDExLjk0NjggMTYuOTIyOFYxNS45MDg3QzExLjk0NjggMTUuNzE2MSAxMi4xMDI4IDE1LjU2MDEgMTIuMjk1NCAxNS41NjAxWiIgZmlsbD0iIzc1NEZGRSIgc3Ryb2tlPSIjNzU0RkZFIiBzdHJva2Utd2lkdGg9IjAuMDYzMzgxMyIvPgo8cGF0aCBkPSJNOS45MzM0MyAxNi4zOTM3QzkuOTMzNDMgMTYuNzA4NyA5Ljc2MzE3IDE2Ljk2NDEgOS41NTMxNCAxNi45NjQxQzkuMzQzMTEgMTYuOTY0MSA5LjE3Mjg1IDE2LjcwODcgOS4xNzI4NSAxNi4zOTM3QzkuMTcyODUgMTYuMDc4NiA5LjM0MzExIDE1LjgyMzIgOS41NTMxNCAxNS44MjMyQzkuNzYzMTcgMTUuODIzMiA5LjkzMzQzIDE2LjA3ODYgOS45MzM0MyAxNi4zOTM3WiIgZmlsbD0iIzc1NEZGRSIvPgo8cGF0aCBkPSJNMTYuOTY4OCAxNi4zOTM3QzE2Ljk2ODggMTYuNzA4NyAxNy4xMzkgMTYuOTY0MSAxNy4zNDkxIDE2Ljk2NDFDMTcuNTU5MSAxNi45NjQxIDE3LjcyOTMgMTYuNzA4NyAxNy43MjkzIDE2LjM5MzdDMTcuNzI5MyAxNi4wNzg2IDE3LjU1OTEgMTUuODIzMiAxNy4zNDkxIDE1LjgyMzJDMTcuMTM5IDE1LjgyMzIgMTYuOTY4OCAxNi4wNzg2IDE2Ljk2ODggMTYuMzkzN1oiIGZpbGw9IiM3NTRGRkUiLz4KPHBhdGggZD0iTTE0LjI3NTggMjAuMTAxNkMxMy42NDIgMjAuNjA4NiAxMi43ODYzIDIwLjM1NTEgMTIuNTY0NSAyMC4xMDE2QzEyLjYyNzggMjAuNDE4NSAxMi44Njg3IDIwLjg2MjIgMTMuNDUxOCAyMC44NjIyQzE0LjAzNDkgMjAuODYyMiAxNC4yNDQxIDIwLjM1NTEgMTQuMjc1OCAyMC4xMDE2WiIgZmlsbD0iIzc1NEZGRSIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTEyLjEzMTIgMjIuNDExQzEyLjE1NzUgMjIuMjkxNCAxMi4yNzU5IDIyLjIxNTcgMTIuMzk1NiAyMi4yNDIxTDE0LjYzNDcgMjIuNzM1QzE0Ljc1NDQgMjIuNzYxNCAxNC44MyAyMi44Nzk3IDE0LjgwMzYgMjIuOTk5NEMxNC43NzczIDIzLjExOSAxNC42NTkgMjMuMTk0NyAxNC41MzkzIDIzLjE2ODNMMTIuMzAwMiAyMi42NzUzQzEyLjE4MDUgMjIuNjQ5IDEyLjEwNDkgMjIuNTMwNyAxMi4xMzEyIDIyLjQxMVoiIGZpbGw9IiM3NTRGRkUiLz4KPHBhdGggZD0iTTEzLjQyMDMgMjcuNjc1NEM5LjAwODk3IDI3LjcyNjEgNS43NzIyOCAyMy42NjEzIDQuNzA1MzYgMjEuNjIyNUM0LjU0NjkxIDIxLjMxOTcgNC40MjAxNiAyMS4yNzM5IDQuMzI1MDkgMjEuMzM3M0M0LjE3Mjk3IDIxLjQzODcgNC4yODI4MiAyMS42NDM3IDQuMzI1MDcgMjEuNzQ5M0M0Ljg1NzQ3IDIyLjk5MTYgNS41ODIxMyAyNC4wNDE2IDUuODc3OTEgMjQuNDExM0M0LjgzODQ2IDI2LjEzNTMgNC40OTQwOSAyNy44NTUgNC40NTE4MyAyOC40OTk0QzYuMTc1OCAyNi44MDA4IDcuOTE2NjggMjYuODgzMiA4LjU3MTYyIDI3LjEzNjdDMTMuNzA1NSAyOS43OTg3IDE2LjU1NzcgMjcuOTI5IDE4LjE3MzkgMjcuMTM2N0MxOS40NjY5IDI2LjUwMjkgMjEuNDgwMyAyNy43Mzg4IDIyLjMyNTQgMjguNDM2QzIyLjIyNCAyNi44NjQyIDIxLjM3NDcgMjUuMTQwMiAyMC45NjI3IDI0LjQ3NDdDMjEuNjI4MiAyMy41ODczIDIyLjE2NjkgMjIuNTA5OSAyMi40NTIyIDIxLjk3MTFDMjIuNjgwMyAyMS41NDAxIDIyLjYxMDYgMjEuMzY5IDIyLjU0NzIgMjEuMzM3M0MyMi4zOTUxIDIxLjI2MTMgMjIuMjA5MiAyMS40OTU4IDIyLjEzNTMgMjEuNjIyNUMyMS42NTk5IDIyLjQxNDggMTguOTM0NSAyNy42MTIxIDEzLjQyMDMgMjcuNjc1NFoiIGZpbGw9IiM3NTRGRkUiLz4KPHBhdGggZD0iTTQ1LjI3MjkgMTAuODYwOEg0OS42NDc5QzQ5LjA5MTEgNi44MzM4MSA0NS41NDE0IDQgNDAuOTM3NyA0QzM1LjU1ODQgNCAzMS40MTIxIDcuODc3ODQgMzEuNDEyMSAxNC40ODAxQzMxLjQxMjEgMjAuOTIzMyAzNS4yOSAyNC45MjA1IDQxLjAyNzIgMjQuOTIwNUM0Ni4xNjc4IDI0LjkyMDUgNDkuODM2OCAyMS42NjkgNDkuODM2OCAxNi4zMDk3VjEzLjc0NDNINDEuMzE1NVYxNi45ODU4SDQ1LjY5MDVDNDUuNjMwOSAxOS41MTE0IDQzLjkxMDcgMjEuMTEyMiA0MS4wNDcxIDIxLjExMjJDMzcuODE1NSAyMS4xMTIyIDM1Ljc3NzIgMTguNjk2IDM1Ljc3NzIgMTQuNDQwNEMzNS43NzcyIDEwLjIwNDUgMzcuODk1MSA3LjgwODI0IDQxLjAwNzMgNy44MDgyNEM0My4yMjQ2IDcuODA4MjQgNDQuNzI2IDguOTUxNzEgNDUuMjcyOSAxMC44NjA4WiIgZmlsbD0iIzE4MTEzQyIvPgo8cGF0aCBkPSJNNTguODMxNiAyNC45NDAzQzYyLjYxMDEgMjQuOTQwMyA2NS4xNTU1IDIzLjEwMDggNjUuNzUyMSAyMC4yNjdMNjEuODM0NSAyMC4wMDg0QzYxLjQwNjkgMjEuMTcxOCA2MC4zMTMyIDIxLjc3ODMgNTguOTAxMiAyMS43NzgzQzU2Ljc4MzMgMjEuNzc4MyA1NS40NDEgMjAuMzc2MyA1NS40NDEgMTguMDk5M1YxOC4wODk0SDY1Ljg0MTZWMTYuOTI2QzY1Ljg0MTYgMTEuNzM1NyA2Mi42OTk1IDkuMTcwNDEgNTguNjYyNiA5LjE3MDQxQzU0LjE2ODMgOS4xNzA0MSA1MS4yNTQ5IDEyLjM2MjEgNTEuMjU0OSAxNy4wNzUyQzUxLjI1NDkgMjEuOTE3NSA1NC4xMjg1IDI0Ljk0MDMgNTguODMxNiAyNC45NDAzWk01NS40NDEgMTUuNDY0NEM1NS41MzA1IDEzLjcyNDMgNTYuODUzIDEyLjMzMjMgNTguNzMyMiAxMi4zMzIzQzYwLjU3MTcgMTIuMzMyMyA2MS44NDQ0IDEzLjY0NDggNjEuODU0NCAxNS40NjQ0SDU1LjQ0MVoiIGZpbGw9IiMxODExM0MiLz4KPHBhdGggZD0iTTc0LjQ0NTggMjQuOTQwM0M3OC4yMjQyIDI0Ljk0MDMgODAuNzY5NyAyMy4xMDA4IDgxLjM2NjMgMjAuMjY3TDc3LjQ0ODcgMjAuMDA4NEM3Ny4wMjExIDIxLjE3MTggNzUuOTI3NCAyMS43NzgzIDc0LjUxNTQgMjEuNzc4M0M3Mi4zOTc1IDIxLjc3ODMgNzEuMDU1MiAyMC4zNzYzIDcxLjA1NTIgMTguMDk5M1YxOC4wODk0SDgxLjQ1NThWMTYuOTI2QzgxLjQ1NTggMTEuNzM1NyA3OC4zMTM3IDkuMTcwNDEgNzQuMjc2OCA5LjE3MDQxQzY5Ljc4MjUgOS4xNzA0MSA2Ni44NjkxIDEyLjM2MjEgNjYuODY5MSAxNy4wNzUyQzY2Ljg2OTEgMjEuOTE3NSA2OS43NDI3IDI0Ljk0MDMgNzQuNDQ1OCAyNC45NDAzWk03MS4wNTUyIDE1LjQ2NDRDNzEuMTQ0NyAxMy43MjQzIDcyLjQ2NzEgMTIuMzMyMyA3NC4zNDY0IDEyLjMzMjNDNzYuMTg1OSAxMi4zMzIzIDc3LjQ1ODYgMTMuNjQ0OCA3Ny40Njg1IDE1LjQ2NDRINzEuMDU1MloiIGZpbGw9IiMxODExM0MiLz4KPHBhdGggZD0iTTgzLjA5OTYgMjQuNjQySDg3LjMzNTRWMTkuNzg5N0w4OC40Nzg4IDE4LjQ4NzFMOTIuNjQ1IDI0LjY0Mkg5Ny42MDY3TDkxLjY1MDcgMTUuOTgxNEw5Ny4zMTgzIDkuMzY5MjNIOTIuNDU2MUw4Ny41NjQxIDE1LjE2NjFIODcuMzM1NFY0LjI3ODMySDgzLjA5OTZWMjQuNjQyWiIgZmlsbD0iIzE4MTEzQyIvPgo8cGF0aCBkPSJNMTEwLjk4NCAxMy43MjQzQzExMC42MDYgMTAuOTEwNSAxMDguMzM5IDkuMTcwNDEgMTA0LjQ4MSA5LjE3MDQxQzEwMC41NzQgOS4xNzA0MSA5Ny45OTgzIDEwLjk4MDEgOTguMDA4MyAxMy45MjMyQzk3Ljk5ODMgMTYuMjEwMSA5OS40NDAxIDE3LjY5MTcgMTAyLjQyMyAxOC4yODgzTDEwNS4wNjggMTguODE1M0MxMDYuNCAxOS4wODM3IDEwNy4wMDcgMTkuNTcwOSAxMDcuMDI3IDIwLjMzNjZDMTA3LjAwNyAyMS4yNDE0IDEwNi4wMjIgMjEuODg3NyAxMDQuNTQxIDIxLjg4NzdDMTAzLjAzIDIxLjg4NzcgMTAyLjAyNSAyMS4yNDE0IDEwMS43NjcgMTkuOTk4NUw5Ny42MDA2IDIwLjIxNzJDOTcuOTk4MyAyMy4xNDA1IDEwMC40ODQgMjQuOTQwMyAxMDQuNTMxIDI0Ljk0MDNDMTA4LjQ4OCAyNC45NDAzIDExMS4zMjIgMjIuOTIxOCAxMTEuMzMyIDE5LjkwOUMxMTEuMzIyIDE3LjcwMTYgMTA5Ljg4IDE2LjM3OTIgMTA2LjkxNyAxNS43NzI2TDEwNC4xNTMgMTUuMjE1OEMxMDIuNzMxIDE0LjkwNzYgMTAyLjIwNCAxNC40MjA0IDEwMi4yMTQgMTMuNjg0NkMxMDIuMjA0IDEyLjc2OTggMTAzLjIzOCAxMi4xNzMyIDEwNC41NTEgMTIuMTczMkMxMDYuMDIyIDEyLjE3MzIgMTA2Ljg5NyAxMi45Nzg2IDEwNy4xMDYgMTMuOTYzTDExMC45ODQgMTMuNzI0M1oiIGZpbGw9IiMxODExM0MiLz4KPC9zdmc+Cg=="
+            height="25"
+            alt="Logo"
+          />
         </a>
-
+        <div
+          class="navbar-nav navbar-right-wrap ms-auto d-lg-none nav-top-wrap d-none sf-hidden"
+        ></div>
         <!-- Toggler for mobile -->
         <button
-          class="navbar-toggler"
+          aria-controls="basic-navbar-nav"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
+          aria-label="Toggle navigation"
+          class="navbar-toggler collapsed sf-hidden"
+        ></button>
         <!-- Navbar links and buttons -->
-        <div
-          class="collapse navbar-collapse justify-content-between
-          "
+        <!-- <div
+          class="collapse navbar-collapse justify-content-between"
           id="navbarNav"
         >
-          <!-- Middle nav items (optional) -->
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link fw-semibold" href="#">Browse</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-semibold" href="#">Landing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-semibold" href="#">Pages</a>
-            </li>
-            <li class="nav-item">
+          <div>
+
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link fw-semibold" href="#">Browse</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-semibold" href="#">Landing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-semibold" href="#">Pages</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link fw-semibold" href="#">Accounts</a>
               </li>
-              
-          </ul>
-          <input id="input-nav" class="m-3" type="text" placeholder="Search">
-          <!-- Sign in / Sign up buttons -->
-          <div class="d-flex gap-2 w-100 bg-primary">
+            </ul>
+          </div>
+          <input id="input-nav" class="m-3" type="text" placeholder="Search" />
+
+          <div class="d-flex ms-auto">
             <a href="#" class="btn btn-outline-primary">Sign in</a>
             <a href="#" class="btn btn-primary">Sign up</a>
+          </div>
+        </div> -->
+        <div class="navbar-collapse collapse">
+          <div class="navbar-nav">
+            <li>
+              <a
+                aria-expanded="true"
+                role="button"
+                class="dropdown-toggle show nav-link"
+                tabindex="0"
+                href="#"
+                >Browse</a
+              >
+            </li>
+            <li>
+              <a
+                aria-expanded="true"
+                role="button"
+                class="dropdown-toggle show nav-link"
+                tabindex="0"
+                href="#"
+                >Landings</a
+              >
+            </li>
+            <li>
+              <a
+                aria-expanded="true"
+                role="button"
+                class="dropdown-toggle show nav-link"
+                tabindex="0"
+                href="#"
+                >Pages</a
+              >
+            </li>
+            <li>
+              <a
+                aria-expanded="true"
+                role="button"
+                class="dropdown-toggle show nav-link"
+                tabindex="0"
+                href="#"
+                >Accounts</a
+              >
+            </li>
+            <li>
+              <a
+                id="basic-nav-dropdown"
+                aria-expanded="true"
+                role="button"
+                class="show no-dropdown-arrow d-block nav-link fs-3 lh-1 pt-0"
+                tabindex="0"
+                href="#"
+                >...</a
+              >
+            </li>
+            <form class="mt-3 mt-lg-0 ms-lg-3 d-flex align-items-center">
+              <span class="position-absolute ps-3 search-icon"
+                ><i class="fe fe-search"></i></span
+              ><input
+                placeholder="Search Courses"
+                type="Search"
+                id="formSearch"
+                class="ps-6 form-control"
+                value=""
+              />
+            </form>
+          </div>
+          <div class="ms-auto d-flex gap-5 p-4">
+            <div class="d-flex gap-2">
+              <button class="btn btn-white shadow-sm me-2">Sign in</button>
+              <button class="btn btn-primary shadow-sm signUp">Sign Up</button>
+            </div>
           </div>
         </div>
       </div>
     </nav>
 
-    <section class="container min-vh-100 d-flex flex-column">
-      <div class="banner h40 d-flex flex-column justify-content-center">
-        <h2 class="fs-1 text-start">Become a Vanilla JavaScript Developer</h2>
+    <main>
+      <!--Section 1 for Banner and introduce of website-->
+      <section>
+        <div class="py-md-20 py-12 bg-white">
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-6 col-lg-6 col-md-12">
+                <div class="mb-4 mb-xl-0 text-center text-md-start">
+                  <h1 class="display-2 fw-bold mb-3 ls-sm">
+                    Become a Vanilla JavaScript Developer
+                  </h1>
+                  <p class="lead">
+                    In this tutorial, we are going to learn about JavaScript
+                    (Vanilla JS) - for building incredible, powerful JavaScript
+                    applications.
+                  </p>
+                </div>
 
-        <p class="text-start fs-4">
-          In this tutorial, we are going to learn about JavaScript (Vanilla JS)
-          - for building incredible, powerful JavaScript applications.
-        </p>
-      </div>
+                <!--Total website visit and Hours Watch-->
+                <div class="m-3 p-3">
+                  <ul class="list-unstyled d-flex flex-column mt-1 gap-2">
+                    <li>4 Hours</li>
 
-      <div class="info-videos">
-        <p>4 Hours</p>
-        <p>12 Videos</p>
-        <p>10,234+ Enrolled</p>
-      </div>
+                    <li>12 Videos</li>
+                    <li>10,234+ Enrolled</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-xl-5 col-lg-6 col-md-12 offset-xl-1">
+                <div class="smooth-shadow-md card">
+                  <div class="p-6 card-body" style="z-index: 1">
+                    <div class="p-6 card-body">
+                      <div class="mb-4">
+                        <h1 class="mb-4 lh-1 fw-bold h2">
+                          Create Free Account
+                        </h1>
+                        <div class="mt-3 mb-5 g-2 row">
+                          <div
+                            role="group"
+                            aria-label="socialButton"
+                            class="btn-group mb-2 mb-md-0 col-lg-4"
+                          >
+                            <button
+                              type="button"
+                              class="shadow-sm btn btn-light"
+                            >
+                              <svg
+                                viewBox="0 0 24 24"
+                                role="presentation"
+                                class="text-danger"
+                                style="width: 0.9rem; height: 0.9rem"
+                              >
+                                <path
+                                  d="M21.35,11.1H12.18V13.83H18.69C18.36,17.64 15.19,19.27 12.19,19.27C8.36,19.27 5,16.25 5,12C5,7.9 8.2,4.73 12.2,4.73C15.29,4.73 17.1,6.7 17.1,6.7L19,4.72C19,4.72 16.56,2 12.1,2C6.42,2 2.03,6.8 2.03,12C2.03,17.05 6.16,22 12.25,22C17.6,22 21.5,18.33 21.5,12.91C21.5,11.76 21.35,11.1 21.35,11.1V11.1Z"
+                                  style="fill: currentcolor"
+                                ></path>
+                              </svg>
+                              Google
+                            </button>
+                          </div>
+                          <div
+                            role="group"
+                            aria-label="socialButton"
+                            class="btn-group mb-2 mb-md-0 col-lg-4"
+                          >
+                            <button
+                              type="button"
+                              class="shadow-sm btn btn-light"
+                            >
+                              <svg
+                                viewBox="0 0 24 24"
+                                role="presentation"
+                                class="text-info"
+                                style="width: 0.9rem; height: 0.9rem"
+                              >
+                                <path
+                                  d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"
+                                  style="fill: currentcolor"
+                                ></path>
+                              </svg>
+                              Twitter
+                            </button>
+                          </div>
+                          <div
+                            role="group"
+                            aria-label="socialButton"
+                            class="btn-group col-lg-4"
+                          >
+                            <button
+                              type="button"
+                              class="shadow-sm btn btn-light"
+                            >
+                              <svg
+                                viewBox="0 0 24 24"
+                                role="presentation"
+                                class="text-primary"
+                                style="width: 0.9rem; height: 0.9rem"
+                              >
+                                <path
+                                  d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"
+                                  style="fill: currentcolor"
+                                ></path>
+                              </svg>
+                              Facebook
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <div class="border-bottom"></div>
+                      <div class="text-center mt-n2 lh-1">
+                        <span class="bg-white px-2 fs-6">OR</span>
+                      </div>
+                    </div>
+                    <form>
+                      <div class="mb-3">
+                        <input
+                          placeholder="Email"
+                          type="email"
+                          id="email"
+                          class="form-control"
+                          value=""
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <input
+                          placeholder="Password"
+                          type="password"
+                          id="password"
+                          class="form-control"
+                        />
+                      </div>
+                      <div class="d-grid">
+                        <button type="submit" class="btn btn-primary signUp">
+                          Start Courses for Free
+                        </button>
+                      </div>
+                    </form>
 
-      <div class="btn-watch">
-        <button class="btn btn-success">Watch Preview</button>
-      </div>
+                    <div class="px-6 py-4 card-footer">
+                      <p class="mb-0">
+                        By continuing you accept the Terms of Use, Privacy
+                        Policy, and Data Policy
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-success btn-lg fs-4">Watch Preview</button>
+          </div>
 
-      <div class="features container">
-        <div>
-          <ul class="navbar-nav mt-5 d-flex flex-row justify-content-between">
-            <li class="nav-item">Shareable Certificate</li>
-            <li class="nav-item">Flexible Deadlines</li>
-            <li class="nav-item">100% Online Courses</li>
-            <li class="nav-item">Approx.24 hours</li>
-          </ul>
+          <div class="py-4 shadow-sm position-relative bg-white">
+            <ul
+              class="list-unstyled d-flex flex-row m-4 justify-content-around fw-bold"
+            >
+              <li>Shareable Certificate</li>
+              <li>Flexible Deadlines</li>
+              <li>100% Online Courses</li>
+              <li>Approx.24 hours</li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <!--//Section 1 for Banner and introduce of website//-->
+
+      <section class="vh-100 mt-5">
+        <div class="container">
+          <div class="mb-10 justify-content-center row">
+            <div
+              class="d-flex justify-content-center flex-column align-items-center"
+            >
+              <p>Course Description</p>
+              <h3 class="fw-bold fs-1">What will you learn?</h3>
+              <p class="lead">
+                Vanilla JS is a fast, lightweight, cross-platformframework for
+                building incredible, powerful JavaScript applications.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-sm-12">
+              <div class="mb-4 card">
+                <div class="p-6 card-body">
+                  <div class="p-6 card-body">
+                    <div class="d-md-flex mb-4">
+                      <div class="mb-3 mb-md-0">
+                        <img
+                          src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHZpZXdCb3g9IjAgMCA3MiA3MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zNyAzNS44ODJMNTEgMjguODgyTDM1LjQ0NyAyMS4xMDVDMzUuMzA4MSAyMS4wMzU1IDM1LjE1NDkgMjAuOTk5MyAzNC45OTk1IDIwLjk5OTNDMzQuODQ0MSAyMC45OTkzIDM0LjY5MDkgMjEuMDM1NSAzNC41NTIgMjEuMTA1TDIxIDI3Ljg4MkwzNyAzNS44ODJaIiBmaWxsPSIjRTBFMUZGIiBmaWxsLW9wYWNpdHk9IjAuNjQiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zNyAzNS42MThWNTAuNjE4TDUwLjQ0NyA0My44OTRDNTAuNjEzMiA0My44MTEyIDUwLjc1MzEgNDMuNjgzNyA1MC44NTA3IDQzLjUyNThDNTAuOTQ4NCA0My4zNjc4IDUxLjAwMDEgNDMuMTg1OCA1MSA0M1YyOC42MThMMzcgMzUuNjE4WiIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyKSIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTM3IDM1LjYxOEwyMSAyNy42MThWNDJDMjEgNDIuMzc5IDIxLjIxNCA0Mi43MjUgMjEuNTUzIDQyLjg5NUwzNyA1MC42MThWMzUuNjE4WiIgZmlsbD0iI0UwRTFGRiIgZmlsbC1vcGFjaXR5PSIwLjI0Ii8+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50MF9saW5lYXIiIHgxPSI1MSIgeTE9IjM5LjYxOCIgeDI9IjM2LjQ0NDYiIHkyPSIzNy4xOTM1IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IndoaXRlIiBzdG9wLW9wYWNpdHk9IjAuNjQiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSJ3aGl0ZSIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+Cjwvc3ZnPgo="
+                          alt=""
+                          class="signUp icon-shape icon-xxl rounded-circle"
+                        />
+                        <div class="ms-md-4">
+                          <h4 class="fw-bold mb-1">
+                            Introduction to JavaScript<span
+                              class="ms-2 badge bg-warning"
+                              >Free</span
+                            >
+                          </h4>
+                          <p class="text-uppercase fs-6 fw-semi-bold mb-0">
+                            <span class="text-dark">Courses - 1</span>
+                            <span class="ms-3">6 Lessons</span>
+                            <span class="ms-3">1 HOUR 12 MIN</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <!--Course Description-->
-    <section class="course-description">
+    <!-- <section class="course-description">
       <div class="course-course"></div>
-    </section>
+    </section> -->
     <!--Course Description-->
   </body>
 </html>
